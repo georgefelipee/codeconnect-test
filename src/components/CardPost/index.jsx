@@ -6,6 +6,7 @@ import Link from "next/link"
 import { incrementThumbsUp, postComment } from "@/actions"
 import { ThumbsUpButton } from "./ThumbsUpButton"
 import { ModalComment } from "../ModalComment"
+import { Author } from "../Author"
 
 export const CardPost = ({ post, highlight }) => {
 
@@ -43,10 +44,7 @@ export const CardPost = ({ post, highlight }) => {
                         </p>
                     </div>
                 </div>
-                <Avatar
-                    imageSrc={post.author.avatar}
-                    name={post.author.username}
-                />
+                <Author author={post.author} />
             </footer>
         </article>
     )

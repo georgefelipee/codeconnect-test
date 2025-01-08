@@ -3,10 +3,11 @@ import { remark } from 'remark';
 import html from 'remark-html';
 
 import styles from './page.module.css'
-import { CardPost } from "@/components/CardPost";
-import db from "../../../../prisma/db";
+
+import db from "../../../../../prisma/db";
 import { redirect } from "next/navigation";
 import { CommentList } from "@/components/CommentList";
+import { CardPost } from "@/components/CardPost";
 
 
 async function getPostBySlug(slug) {

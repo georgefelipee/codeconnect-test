@@ -19,6 +19,7 @@ model User {
   Post          Post[]
   comments      Comment[]
   email         String?   @unique
+  password      String?
   emailVerified DateTime? @map("email_verified")
   image         String?
   accounts      Account[]

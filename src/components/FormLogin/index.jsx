@@ -4,14 +4,19 @@ import { Input } from '@/components/Input'
 import { Button } from '@/components/Button'
 import { ArrowFoward } from '@/components/icons/ArrowFoward'
 import { useState } from 'react'
+import { signIn } from 'next-auth/react'
+
 import styles from './form-login.module.css'
 export default function FormLogin() {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const loginAttempt = async (event) => {
         event.preventDefault()
-        
-        console.log('login?')
+        signIn("credentials", {
+            callbackUrl : "/",
+            email,
+            password
+        })
     }
     return (
         <form className={styles.form} onSubmit={loginAttempt}>

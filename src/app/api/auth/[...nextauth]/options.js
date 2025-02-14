@@ -44,12 +44,21 @@ export const options = {
     ],
 
     callbacks: {
+      async jwt({token,user}){
+        if(user){
+            token.avatar = user.avatar
+        }
+        return token;
+    },
         async session({session,token }){
             if(session?.user){
                 session.user.id = parseInt(token.sub)
             }
             return session;
         }
+    },
+    pages: {
+      signIn: "/signin",
     }
 
 }
